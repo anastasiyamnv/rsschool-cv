@@ -3,7 +3,8 @@ body {
 }
 
 .container {
-    width: 1440px; 
+    width: 1440px;
+    max-width: 100%;  
     margin: 0 auto;  
     overflow: hidden;
 }
@@ -71,6 +72,7 @@ body {
     align-items: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px; 
+    width: 100%;
 }
 
 .hero-section__container {
@@ -129,6 +131,7 @@ body {
     height: 528px;
     width: 1276px;
     display: flex;
+    flex-direction: row; 
     align-items: center; 
 }
 
@@ -139,6 +142,7 @@ body {
 .about-section__block img {
     border-radius: 20px;
     height: auto;
+    max-width: 50%;
 }
 
 .about-section__caption {
@@ -239,23 +243,334 @@ body {
     background-repeat: no-repeat;
     background-size: 12.5px 12px;
     background-position: center;
-  }
-  
-  .arrow-icon--right {
+}
+
+.arrow-icon--right {
     background-image: url('images/arrow-right.png'); 
     background-repeat: no-repeat;
     background-size: 12.5px 12px; 
     background-position: center;
-  }
-  
-  .arrow-icon:hover {
+}
+
+.arrow-icon:hover {
     background-color: white; 
-  }
-  
-  .arrow-icon--left:hover {
+}
+
+.arrow-icon--left:hover {
     background-image: url('images/arrow-left-h.png');
-  }
-  
-  .arrow-icon--right:hover {
+}
+
+.arrow-icon--right:hover {
     background-image: url('images/arrow-right-h.png'); 
-  }
+}
+
+/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+.best-gifts-section__container {
+    background-color: #FF4646;
+    background-image: url('images/bg-snow.png');
+    height: 554px;
+    background-size: cover;
+    background-position: center;
+}
+
+.best-gifts-section__caption {
+    font-family: "Allura", cursive;
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.best-gifts-section__title {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.05em; 
+    line-height: 1;
+    padding-top: 12px;
+    text-align: center;
+}
+
+.best-gifts-section__cards {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.best-gifts-card {
+    position: relative; 
+    width: 310px;
+    height: 342px; 
+    background-color: #ECF3F8; 
+    border-radius: 20px; 
+    overflow: hidden;
+}
+
+.best-gifts-card:nth-child(1) {
+    background-image: url('images/gift-for-work.png');
+    background-repeat: no-repeat;   
+    background-position: top;
+    background-size: 100% 230px;   
+}
+
+.best-gifts-card:nth-child(2) {
+    background-image: url('images/gift-for-health.png');
+    background-repeat: no-repeat;   
+    background-position: top;
+    background-size: 100% 230px;
+}
+
+.best-gifts-card:nth-child(3) {
+    background-image: url('images/gift-for-work.png');
+    background-repeat: no-repeat;   
+    background-position: top;
+    background-size: 100% 230px;
+}
+
+.best-gifts-card:nth-child(4) {
+    background-image: url('images/gift-for-harmony.png');
+    background-repeat: no-repeat;   
+    background-position: top;
+    background-size: 100% 230px;
+}
+
+.best-gifts-card__text-block {
+    position: absolute; 
+    bottom: 0; 
+    width: 100%; 
+    height: 112px;
+    background-color: #FFFFFF; 
+    border-radius: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.best-gifts-card__text-block > div {
+    margin-left: 20px;
+}
+
+.best-gifts-card__category {    
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.best-gifts-card:nth-child(1) .best-gifts-card__category,
+.best-gifts-card:nth-child(3) .best-gifts-card__category {
+    color: #4361FF;
+}
+
+.best-gifts-card:nth-child(2) .best-gifts-card__category {
+    color: #06A44F;
+}
+
+.best-gifts-card:nth-child(4) .best-gifts-card__category {
+    color: #FF43F7;
+}
+
+.best-gifts-card__name {    
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.52;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.best-gifts-section__card {
+    height: 342px;
+}
+
+.best-gifts-section__card > div:nth-child(1) {
+    background-image: url('images/gift-for-work.png');
+}
+
+.best-gifts-section__card > div:nth-child(2) {
+    background-image: url('images/gift-for-health.png');
+}
+
+.best-gifts-section__card > div:nth-child(3) {
+    background-image: url('images/gift-for-work.png');
+}
+
+.best-gifts-section__card > div:nth-child(4) {
+    background-image: url('images/gift-for-harmony.png');
+}
+
+/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+
+.cta-section {
+    height: 668px;
+    background-color: #FF4646;
+    background-image: url('images/bg-forest.png'), url('images/bg-snow.png');
+    background-size: cover; 
+    background-position: center center, center bottom;
+    background-repeat: no-repeat, no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-section__title {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.52;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.cta-section__button {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background-color: #181C29;
+    padding: 20px 32px;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+.cta-section__new-year-wish {
+    font-family: Allura;
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    margin-top: 40px;
+}
+
+.cta-section__container {
+    height: 428px;
+    width: 426px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.cta-section__button:hover {
+    color: #181C29;
+    background-color: white;
+}
+
+.cta-section__countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: white;
+    margin-top: 8px;
+    height: 72px;
+    width: 344px;
+    background-color: rgba(255, 255, 255, 0.4); 
+    border-radius: 20px;
+}
+
+.cta-section__countdown-data > .cta-section__countdown-days,
+.cta-section__countdown-data > .cta-section__countdown-hours,
+.cta-section__countdown-data > .cta-section__countdown-minutes,
+.cta-section__countdown-data > .cta-section__countdown-seconds {
+    width: 80px;
+    height: 36px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.cta-section__countdown-data > .cta-section__countdown-label {
+    width: 80px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+.footer {
+    width: 1440px; 
+    margin: 60px auto;  
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.footer__cards {
+    flex-wrap: wrap; 
+    display: flex;
+    justify-content: center; 
+    gap: 12px;
+}
+
+.contacts {
+    background-color: #ECF3F8;
+    border-radius: 20px;
+    width: 418px;
+    height: 204px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 12px;
+}
+
+.contacts__icon {
+    height: 80px;
+    width: 80px;
+}
+
+.contacts__info {
+    font-size: 24px;
+    font-weight: 600;
+    line-height:  1.52;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.contacts__text {
+    font-size: 16px;
+    font-weight: 600;
+    line-height:  1.52;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.footer__container {    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    gap: 12px;
+}
+
+.footer__social-media-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    height: 40px;
+}
+
+.footer__copyrights {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.48;
+}
+
+.footer__wish {
+    font-family: Allura;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.05em;
+}

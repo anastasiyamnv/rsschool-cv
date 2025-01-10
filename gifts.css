@@ -38,59 +38,12 @@
     border-radius: 10px;
 }
 
-.best-gifts-card {
-    position: relative;
-    width: 310px;
-    height: 342px;
-    background-color: #ECF3F8;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.best-gifts-card.for-work .best-gifts-card__image {
-    background-image: url('images/gift-for-work.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 230px;
-}
-
-.best-gifts-card.for-health .best-gifts-card__image {
-    background-image: url('images/gift-for-health.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 230px;
-}
-
-.best-gifts-card.for-harmony .best-gifts-card__image {
-    background-image: url('images/gift-for-harmony.png');
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: 100% 230px;
-}
-
-.best-gifts-card__image {
-    width: 100%;
-    height: 230px;
-}
-
 .best-gifts-card__text-block {
     padding: 10px;
 }
 
 .best-gifts-card__category {
     font-weight: bold;
-}
-
-.best-gifts-card.for-work .best-gifts-card__category {
-    color: #4361FF;
-}
-
-.best-gifts-card.for-health .best-gifts-card__category {
-    color: #06A44F;
-}
-
-.best-gifts-card.for-harmony .best-gifts-card__category {
-    color: #FF43F7;
 }
 
 .best-gifts-section__cards {

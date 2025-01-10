@@ -60,6 +60,7 @@ body {
 
 .header__menu a {
     color: black;
+    text-transform: uppercase;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.18em;
@@ -74,6 +75,20 @@ body {
     border-radius: 10px;
 }
 
+.header__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10px; 
+    width: 20px; 
+    cursor: pointer;
+}
+
+.header__hamburger div {
+    background-color: #181C29; 
+    height: 1px; 
+    transition: all 0.3s ease;            
+}
 /*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
 .hero-section {
     background-color: #FF4646;
@@ -295,34 +310,21 @@ body {
     background-color: #ECF3F8; 
     border-radius: 20px; 
     overflow: hidden;
-}
-
-.best-gifts-card:nth-child(1) {
-    background-image: url('images/gift-for-work.png');
     background-repeat: no-repeat;   
     background-position: top;
-    background-size: 100% 230px;   
+    background-size: 100% 230px;
 }
 
-.best-gifts-card:nth-child(2) {
+.best-gifts-card.for-work {
+    background-image: url('images/gift-for-work.png');
+}
+
+.best-gifts-card.for-health {
     background-image: url('images/gift-for-health.png');
-    background-repeat: no-repeat;   
-    background-position: top;
-    background-size: 100% 230px;
 }
 
-.best-gifts-card:nth-child(3) {
-    background-image: url('images/gift-for-work.png');
-    background-repeat: no-repeat;   
-    background-position: top;
-    background-size: 100% 230px;
-}
-
-.best-gifts-card:nth-child(4) {
+.best-gifts-card.for-harmony {
     background-image: url('images/gift-for-harmony.png');
-    background-repeat: no-repeat;   
-    background-position: top;
-    background-size: 100% 230px;
 }
 
 .best-gifts-card__text-block {
@@ -350,17 +352,20 @@ body {
     margin-bottom: 8px;
 }
 
-.best-gifts-card:nth-child(1) .best-gifts-card__category,
-.best-gifts-card:nth-child(3) .best-gifts-card__category {
+.best-gifts-card.for-work .best-gifts-card__category {
     color: #4361FF;
 }
 
-.best-gifts-card:nth-child(2) .best-gifts-card__category {
+.best-gifts-card.for-health .best-gifts-card__category {
     color: #06A44F;
 }
 
-.best-gifts-card:nth-child(4) .best-gifts-card__category {
+.best-gifts-card.for-harmony .best-gifts-card__category {
     color: #FF43F7;
+}
+
+.best-gifts-section__card {
+    height: 342px;
 }
 
 .best-gifts-card__name {    
@@ -370,27 +375,6 @@ body {
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
-
-.best-gifts-section__card {
-    height: 342px;
-}
-
-.best-gifts-section__card > div:nth-child(1) {
-    background-image: url('images/gift-for-work.png');
-}
-
-.best-gifts-section__card > div:nth-child(2) {
-    background-image: url('images/gift-for-health.png');
-}
-
-.best-gifts-section__card > div:nth-child(3) {
-    background-image: url('images/gift-for-work.png');
-}
-
-.best-gifts-section__card > div:nth-child(4) {
-    background-image: url('images/gift-for-harmony.png');
-}
-
 /*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
 
 .cta-section {
@@ -406,10 +390,6 @@ body {
     align-items: center;
 }
 
-.cta-section__button:hover {
-    color: #181C29;
-    background-color: white;
-}
 
 .cta-section__container {
     height: 428px;
@@ -468,11 +448,12 @@ body {
     text-align: center;
 }
 
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+/*,,,,,,,,,,,,,,,,,Footer,,,,,,,,,,,,,,,,,,,,,,,*/
 .footer {
     max-width: 1440px; 
     width: 100%;
-    margin: 60px auto;  
+    margin-top: 60px;
+    margin-bottom: 60px;  
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -550,99 +531,13 @@ body {
     letter-spacing: 0.05em;
 }
 
-@media (max-width: 1280px) {
-    .header__menu {
-        display: none;
-    }
-
-    .header__hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 10px; 
-        width: 20px; 
-        cursor: pointer;
-    }
-
-    .header__hamburger div {
-        background-color: #181C29; 
-        height: 1px;             
-    }
-
-    .header__hamburger.active div:nth-child(1) {
-        transform: rotate(45deg);
-        position: relative;
-        top: 5px;
-    }
-
-    .header__hamburger.active div:nth-child(2) {
-        transform: rotate(-45deg);
-        position: relative;
-        top: -5px;
-    }
-
-    .header__menu.open {
-        display: flex; 
-        position: fixed;
-        top: 60px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: white;
-        z-index: 999;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-    }
-
-    .header__menu.open a {
-        font-family: Montserrat;
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 1.52;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: #181C29;
-        margin: 10px 0;
-    }
-
-    .header__line {
-        margin: 12px 8px;
-    }
-
-    .arrow-buttons {
-        margin-right: 20px;
-    }  
-
-    .footer__card {
-        width: 92%;
-    }    
-
-    .about-section__block-text {
-        width: 35%;
-    }
+.footer__card:hover {
+    color: #FF4646;
+    cursor: pointer;
 }
 
-@media (max-width: 600px) {
-    .about-section {
-        height: 1000px;
-    }
-    
-    .about-section__block {
-        height: 880px;
-        flex-direction: column;
-        align-items: center; 
-    }
-
-    .about-section__block-text {
-        width: 93%;     
-    }
-
-    .about-section__block img {
-        max-width: 100%;
-    }
+.footer__social-media-link img:hover {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(24%) saturate(4383%) hue-rotate(335deg) brightness(105%) contrast(100%);
 }
 
 /*,,,,,,,,,,,,,,,,,,,Общие стили,,,,,,,,,,,,,,,,,,,,,*/
@@ -715,11 +610,14 @@ body {
     letter-spacing: 0.17em;
 }
 
+.hidden {
+    display: none;
+}
+/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
 #back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    display: none; 
     background-color: #FFFFFF;
     border: 1px solid #FF4646;
     border-radius: 50%;
@@ -727,10 +625,11 @@ body {
     height: 56px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 #back-to-top::before,
@@ -772,4 +671,100 @@ body {
 
 #back-to-top .arrow-right {
     transform: translate(-15%, 280%) rotate(45deg);
+}
+
+/*,,,,,,,,,,,,,,,,,Адаптив,,,,,,,,,,,,,,,,,,,,,,,*/
+
+@media (max-width: 1280px) {
+    .header__menu {
+        display: none;
+    }
+
+    .header__hamburger {
+        display: flex;
+    }
+
+    .header__menu.open {
+        display: flex;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        transition: right 0.3s ease;
+    }
+
+    .header__hamburger.active div:nth-child(1) {
+        transform: rotate(45deg);
+        position: relative;
+        top: 5px;
+    }
+
+    .header__hamburger.active div:nth-child(2) {
+        transform: rotate(-45deg);
+        position: relative;
+        top: -5px;
+    }
+    
+    .header__menu.open a {
+        font-size: 24px;
+        margin: 10px 0;
+        line-height: 1.52;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #181C29;
+        margin: 8px 0;
+    }
+
+    .header__line {
+        margin: 12px 8px;
+    }
+
+    .arrow-buttons {
+        margin-right: 20px;
+    }  
+
+    .footer__card {
+        width: 92%;
+    }    
+
+    .about-section__block-text {
+        width: 35%;
+    }
+
+    #back-to-top {
+        display: flex;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-section {
+        height: 1000px;
+    }
+    
+    .about-section__block {
+        height: 880px;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .about-section__block-text {
+        width: 93%;     
+    }
+
+    .about-section__block img {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1281px) {
+    #back-to-top {
+        display: none;
+    }
 }

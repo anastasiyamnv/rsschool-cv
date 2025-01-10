@@ -26,27 +26,8 @@ scrollButton.addEventListener('click', () => {
     });
 });
 
-document.getElementById('back-to-top').onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
+///////////////////////////////////////////////////////////////////////////////////////
 
-document.querySelectorAll('.gift-section__tabs a').forEach(tab => {
-    tab.addEventListener('click', function(event) {
-        event.preventDefault();
-        
-        const category = this.getAttribute('data-category');
-        
-        const cards = document.querySelectorAll('.best-gifts-card');
-        
-        cards.forEach(card => {
-            if (category === 'all' || card.classList.contains(`for-${category}`)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none'; 
-            }
-        });
-    });
-});
 const daysElement = document.querySelector('.cta-section__countdown-days');
 const hoursElement = document.querySelector('.cta-section__countdown-hours');
 const minutesElement = document.querySelector('.cta-section__countdown-minutes');
@@ -66,53 +47,55 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const sliderContainer = document.querySelector('.slider-section__container');
-    const leftArrow = document.querySelector('.arrow-icon--left');
-    const rightArrow = document.querySelector('.arrow-icon--right');
-    const visibleAreaWidth = document.querySelector('.slider-section').offsetWidth;
-    let currentOffset = 0, moveStep, maxOffset;
+///////////////////////////////////////////////////////////////////////////////////////
 
-    function calculateSliderParameters() {
-        const sliderTotalWidth = sliderContainer.scrollWidth;
-        const screenWidth = window.innerWidth;
-        const numberOfClicks = screenWidth >= 769 ? 3 : screenWidth >= 380 ? 6 : 9;
-        moveStep = (sliderTotalWidth - visibleAreaWidth) / numberOfClicks;
-        maxOffset = sliderTotalWidth - visibleAreaWidth;
-        resetSlider();
+const sliderContainer = document.querySelector('.slider-section__container');
+const leftArrow = document.querySelector('.arrow-icon--left');
+const rightArrow = document.querySelector('.arrow-icon--right');
+const visibleAreaWidth = document.querySelector('.slider-section').offsetWidth;
+let currentOffset = 0, moveStep, maxOffset;
+
+function calculateSliderParameters() {
+    if (!sliderContainer) return;
+    const sliderTotalWidth = sliderContainer.scrollWidth;
+    const screenWidth = window.innerWidth;
+    const numberOfClicks = screenWidth >= 769 ? 3 : screenWidth >= 380 ? 6 : 9;
+    moveStep = (sliderTotalWidth - visibleAreaWidth) / numberOfClicks;
+    maxOffset = sliderTotalWidth - visibleAreaWidth;
+    resetSlider();
+}
+
+function resetSlider() {
+    currentOffset = 0;
+    sliderContainer.style.transform = `translateX(0px)`;
+    updateArrowStates();
+}
+
+function updateArrowStates() {
+    leftArrow.style.pointerEvents = currentOffset === 0 ? 'none' : 'auto';
+    leftArrow.style.opacity = currentOffset === 0 ? '0.5' : '1';
+    rightArrow.style.pointerEvents = currentOffset >= maxOffset ? 'none' : 'auto';
+    rightArrow.style.opacity = currentOffset >= maxOffset ? '0.5' : '1';
+}
+
+leftArrow.addEventListener('click', () => {
+    if (currentOffset > 0) {
+        currentOffset = Math.max(currentOffset - moveStep, 0);
+        sliderContainer.style.transform = `translateX(-${currentOffset}px)`;
+        sliderContainer.style.transition = 'transform 0.4s ease';
     }
-
-    function resetSlider() {
-        currentOffset = 0;
-        sliderContainer.style.transform = `translateX(0px)`;
-        updateArrowStates();
-    }
-
-    function updateArrowStates() {
-        leftArrow.style.pointerEvents = currentOffset === 0 ? 'none' : 'auto';
-        leftArrow.style.opacity = currentOffset === 0 ? '0.5' : '1';
-        rightArrow.style.pointerEvents = currentOffset >= maxOffset ? 'none' : 'auto';
-        rightArrow.style.opacity = currentOffset >= maxOffset ? '0.5' : '1';
-    }
-
-    leftArrow.addEventListener('click', () => {
-        if (currentOffset > 0) {
-            currentOffset = Math.max(currentOffset - moveStep, 0);
-            sliderContainer.style.transform = `translateX(-${currentOffset}px)`;
-            sliderContainer.style.transition = 'transform 0.4s ease';
-        }
-        updateArrowStates();
-    });
-
-    rightArrow.addEventListener('click', () => {
-        if (currentOffset < maxOffset) {
-            currentOffset = Math.min(currentOffset + moveStep, maxOffset);
-            sliderContainer.style.transform = `translateX(-${currentOffset}px)`;
-            sliderContainer.style.transition = 'transform 0.4s ease';
-        }
-        updateArrowStates();
-    });
-
-    window.addEventListener('resize', calculateSliderParameters);
-    calculateSliderParameters();
+    updateArrowStates();
 });
+
+rightArrow.addEventListener('click', () => {
+    if (currentOffset < maxOffset) {
+        currentOffset = Math.min(currentOffset + moveStep, maxOffset);
+        sliderContainer.style.transform = `translateX(-${currentOffset}px)`;
+        sliderContainer.style.transition = 'transform 0.4s ease';
+    }
+    updateArrowStates();
+});
+
+window.addEventListener('resize', calculateSliderParameters);
+calculateSliderParameters();
+///////////////////////////////////////////////////////////////////////////////////////

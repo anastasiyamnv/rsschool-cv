@@ -19,6 +19,7 @@ body {
     overflow: hidden;
 }
 
+/*Хедер*/
 .header {
     width: 100%;
     max-width: 1440px;
@@ -89,7 +90,8 @@ body {
     height: 1px; 
     transition: all 0.3s ease;            
 }
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+
+/*Hero section*/
 .hero-section {
     background-color: #FF4646;
     background-image: url('images/bg-snow.png'), url('images/bg-ball.png');
@@ -110,7 +112,8 @@ body {
     width: 426px;
     text-align: center;
 }
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+
+/*About*/
 .about-section {
     background-color: #FF4646;
     background-image: url('images/bg-snow.png');
@@ -163,7 +166,7 @@ body {
     margin: 0;
 }
 
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+/*Слайдер*/
 .slider-section {
     background-color: #FF4646;
     background-image: url('images/bg-snow.png');
@@ -272,7 +275,7 @@ body {
     border-color: #FF4646; 
 }
 
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+/*Подарки*/
 .best-gifts-section {
     background-color: #FF4646;
     background-image: url('images/bg-snow.png');
@@ -376,8 +379,8 @@ body {
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
 
+/*Отсчет до НГ*/
 .cta-section {
     height: 668px;
     background-color: #FF4646;
@@ -449,7 +452,7 @@ body {
     text-align: center;
 }
 
-/*,,,,,,,,,,,,,,,,,Footer,,,,,,,,,,,,,,,,,,,,,,,*/
+/*Футер*/
 .footer {
     max-width: 1440px; 
     width: 100%;
@@ -541,7 +544,7 @@ body {
     filter: brightness(0) saturate(100%) invert(36%) sepia(24%) saturate(4383%) hue-rotate(335deg) brightness(105%) contrast(100%);
 }
 
-/*,,,,,,,,,,,,,,,,,,,Общие стили,,,,,,,,,,,,,,,,,,,,,*/
+/*Общие стили*/
 
 .black_button {
     text-decoration: none;
@@ -615,7 +618,7 @@ body {
     display: none;
 }
 
-/*,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*/
+/*Кнопка скролла наверх*/
 #back-to-top {
     position: fixed;
     bottom: 20px;
@@ -675,7 +678,7 @@ body {
     transform: translate(-15%, 280%) rotate(45deg);
 }
 
-/*,,,,,,,,,,,,,,,,,Модальное окно подарка,,,,,,,,,,,,,,,,,,,,,,,*/
+/*Модальное окно подарка*/
 .modal {
     display: none;
     position: fixed;
@@ -687,12 +690,12 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    overflow: hidden;
 }
 
 .modal .modal-card {
     width: 400px;
     height: 514px;
-    padding-right: 20px;
     background-size: 75% 230px;
 }
 
@@ -701,7 +704,6 @@ body {
     width: 100%;
     height: 284px;
     background-color: #FFFFFF;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -712,10 +714,12 @@ body {
     font-weight: 400;
     line-height: 1.48;
     text-align: left;
+    text-transform: capitalize;
 }
 
 .best-gifts-card__description {   
     margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .modal .best-gifts-superpowers__title {
@@ -727,7 +731,7 @@ body {
 }
 
 .best-gifts-superpowers {
-    width: 360px;
+    width: 340px;
 }
 
 .modal .best-gifts-superpowers__list {
@@ -742,10 +746,16 @@ body {
 .modal .superpower-value-container {
     display: flex;
     justify-content: space-between; 
+    align-items: center;
 }
 
 .superpower-value {
     margin-right: 12px;
+}
+
+.modal .superpower-snowflakes {
+    display: flex;
+    gap: 8px;
 }
 
 .modal .snowflake {
@@ -775,7 +785,7 @@ body {
 .modal-close::after {
     content: '';
     position: absolute;
-    width: 20px;
+    width: 30px;
     height: 2px;
     transform-origin: center;
     background-color: black;
@@ -789,8 +799,7 @@ body {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/*,,,,,,,,,,,,,,,,,Адаптив,,,,,,,,,,,,,,,,,,,,,,,*/
-
+/*Адаптив*/
 @media (max-width: 1280px) {
     .header__menu {
         display: none;
@@ -854,7 +863,6 @@ body {
         display: flex;
     }
 }
-
 
 @media (max-width: 600px) {
     .about-section {

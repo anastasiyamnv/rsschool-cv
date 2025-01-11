@@ -1,9 +1,17 @@
-// 
+// создание элемента с классами и текстом
 function createElement(tag, classes = [], textContent = '') {
     const element = document.createElement(tag);
     if (classes.length) element.classList.add(...classes);
     if (textContent) element.textContent = textContent;
     return element;
+}
+
+// загрузка и фильтрация подарков по категории
+function normalizeCategory(category) {
+    return category
+        .toLowerCase().
+        replace(/\s+/g, '').
+        replace('for', '');
 }
 
 // загрузка и фильтрация подарков по категории
@@ -13,23 +21,16 @@ async function loadGifts(category = 'all') {
         const data = await response.json();
         updateActiveTab(category);
 
-        const normalizedCategory = category
-            .toLowerCase()
-            .replace(/\s+/g, '')
-            .replace('for', '');
+        const normalizedCategory = normalizeCategory(category);
 
         const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
 
+        // фильтрация подарков
         const filteredGifts = (category === 'all' && isHomePage)
             ? getRandomGifts(data, 4)
             : (category === 'all'
                 ? data
-                : data.filter(gift =>
-                    gift.category
-                        .toLowerCase()
-                        .replace(/\s+/g, '')
-                        .replace('for', '') === normalizedCategory
-                ));
+                : data.filter(gift => normalizeCategory(gift.category) === normalizedCategory));
 
         renderGifts(filteredGifts);
     } catch (error) {
@@ -42,12 +43,21 @@ function getRandomGifts(gifts, count) {
     return shuffled.slice(0, count);
 }
 
+// создание элемента с заданными классами и текстом
+function createElement(tag, classes = [], textContent = '') {
+    const element = document.createElement(tag);
+    if (classes.length) element.classList.add(...classes);
+    if (textContent) element.textContent = textContent;
+    return element;
+}
+
 function updateActiveTab(category) {
     document.querySelectorAll('.gift-section__tabs a').forEach(tab => {
         tab.classList.toggle('active', tab.getAttribute('data-category') === category);
     });
 }
 
+// отрисовка подарков
 function renderGifts(gifts) {
     const container = document.querySelector('.best-gifts-section__cards');
     if (!container) return;
@@ -74,7 +84,7 @@ function renderGifts(gifts) {
     });
 }
 
-//
+// модальное окно подарка
 function openModal(gift) {
     if (!gift) return;
 
@@ -84,8 +94,7 @@ function openModal(gift) {
     const modalCard = modal.querySelector('.modal-card');
     if (!modalCard) return;
 
-    modalCard.classList.remove('for-work', 'for-health', 'for-harmony');
-
+    // добавление класса по категории
     const categoryClass = gift.category?.toLowerCase().replace(/\s+/g, '-');
     if (categoryClass) modalCard.classList.add(categoryClass);
 
@@ -96,6 +105,7 @@ function openModal(gift) {
     const superpowersBlock = modalCard.querySelector('.best-gifts-superpowers__list');
     superpowersBlock.innerHTML = '';
 
+    // суперсилы подарка
     if (gift.superpowers) {
         for (const [name, value] of Object.entries(gift.superpowers)) {
             const listItem = createElement('li');
@@ -105,6 +115,7 @@ function openModal(gift) {
             const valueSpan = createElement('span', ['superpower-value'], value);
             const snowflakesDiv = createElement('div', ['superpower-snowflakes']);
 
+            // снежинки
             const snowflakesCount = Math.ceil(parseInt(value.replace('+', ''), 10) / 100);
             for (let i = 0; i < 5; i++) {
                 const snowflake = createElement('img', ['snowflake']);
@@ -120,15 +131,20 @@ function openModal(gift) {
         }
     }
 
+    // блокировка скролла страницы
+    document.body.style.overflow = 'hidden';
     modal.style.display = 'flex';
 }
 
+// закрытие модального окна
 function closeModal() {
     const modal = document.getElementById('giftModal');
     if (modal) modal.style.display = 'none';
+    document.body.style.overflow = '';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // обработчик кликов для вкладок категорий
     document.querySelectorAll('.gift-section__tabs a').forEach(tab => {
         tab.addEventListener('click', event => {
             event.preventDefault();
@@ -136,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // обработчик клика на кнопку закрытия модального окна
     const modal = document.getElementById('giftModal');
     if (modal) {
         const closeButton = modal.querySelector('.modal-close');
@@ -148,13 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeModal();
             }
         });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
     }
-
     loadGifts();
 });

@@ -26,10 +26,6 @@ scrollButton.addEventListener('click', () => {
     });
 });
 
-document.getElementById('back-to-top').onclick = function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
 document.querySelectorAll('.gift-section__tabs a').forEach(tab => {
     tab.addEventListener('click', function(event) {
         event.preventDefault();

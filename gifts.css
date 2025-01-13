@@ -1,0 +1,53 @@
+/*Gift-section*/
+.gift-section {
+    width: 100%;
+    min-height: 1394px;
+    background: url('images/bg-garland.png') no-repeat top center,#FF4646;
+    background-size: contain;
+}
+
+.gift-section__container {
+    width: 100%;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-section__title-container {
+    width: 426px;
+}
+
+.gift-section__tabs {
+    color: #FFFF;
+    text-decoration: none;
+}
+
+.gift-section__tabs a {
+    color: #FFFF;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    line-height: 1.3;    
+    padding: 12px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.gift-section__tabs a:hover,
+.gift-section__tabs a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.best-gifts-card__text-block {
+    padding: 10px;
+}
+
+.best-gifts-card__category {
+    font-weight: bold;
+}
+
+.best-gifts-section__cards {
+    padding-top: 32px;
+}

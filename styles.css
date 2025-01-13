@@ -618,6 +618,10 @@ body {
     display: none;
 }
 
+.slider-transition {
+    transition: transform 0.4s ease;
+}
+
 /*Кнопка скролла наверх*/
 #back-to-top {
     position: fixed;

@@ -6,6 +6,7 @@ function toggleMenu() {
     menu.classList.toggle('open');         
 }
 
+//прокрутка вверх
 window.onscroll = function () {
     const backToTopButton = document.getElementById('back-to-top');
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -26,6 +27,7 @@ scrollButton.addEventListener('click', () => {
     });
 });
 
+//категории
 document.querySelectorAll('.gift-section__tabs a').forEach(tab => {
     tab.addEventListener('click', function(event) {
         event.preventDefault();
@@ -43,6 +45,8 @@ document.querySelectorAll('.gift-section__tabs a').forEach(tab => {
         });
     });
 });
+
+//счетчик для НГ
 const daysElement = document.querySelector('.cta-section__countdown-days');
 const hoursElement = document.querySelector('.cta-section__countdown-hours');
 const minutesElement = document.querySelector('.cta-section__countdown-minutes');
@@ -62,12 +66,15 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
+//слайдер
 document.addEventListener('DOMContentLoaded', () => {
     const sliderContainer = document.querySelector('.slider-section__container');
     const leftArrow = document.querySelector('.arrow-icon--left');
     const rightArrow = document.querySelector('.arrow-icon--right');
     const visibleAreaWidth = document.querySelector('.slider-section').offsetWidth;
-    let currentOffset = 0, moveStep, maxOffset;
+    let currentOffset = 0;
+    let moveStep = null;
+    let maxOffset = null;
 
     function calculateSliderParameters() {
         const sliderTotalWidth = sliderContainer.scrollWidth;
@@ -95,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentOffset > 0) {
             currentOffset = Math.max(currentOffset - moveStep, 0);
             sliderContainer.style.transform = `translateX(-${currentOffset}px)`;
-            sliderContainer.style.transition = 'transform 0.4s ease';
+            sliderContainer.classList.add('slider-transition');
         }
         updateArrowStates();
     });
@@ -104,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentOffset < maxOffset) {
             currentOffset = Math.min(currentOffset + moveStep, maxOffset);
             sliderContainer.style.transform = `translateX(-${currentOffset}px)`;
-            sliderContainer.style.transition = 'transform 0.4s ease';
+            sliderContainer.classList.add('slider-transition');
         }
         updateArrowStates();
     });
